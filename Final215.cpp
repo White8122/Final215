@@ -6,8 +6,10 @@ using namespace sf;
 using namespace std;
 
 
-void printMenu(int& choice) {
-	cout << "Hello! this is my Final Project for CGT 215." << endl;
+void printMenu(int& choice) {      // printing out option menu
+	cout << "Hello! This is my Final Project for CGT 215!"<< endl<< "My goal was to do code Image Processing\n\n " << endl;
+	cout << "Please select from the list below what kind of Image Processing you would like: " << endl;
+	cout << "********************************************************\n\n" << endl;
 	cout << "1. Green Screen image" << endl;
 	cout << "2. Grey Scale image" << endl;
 	cout << "3. Blur image " << endl;
@@ -16,12 +18,12 @@ void printMenu(int& choice) {
 }
 
 void getChoices(float& A, float& B) {
+	// code gets weird if I dont leave this in
 	
-	// The rest of this function is an exercise to the reader
 }
 
-void firstChoice(float A, float B) {
-	string background = "images1/backgrounds/winter.png";// tried using the sky png but it caused issues so kept the winter.png
+void firstChoice(float A, float B) {  // GREEN SCREEN
+	string background = "images1/backgrounds/winter.png";
 	string foreground = "images1/characters/LostMan.png";
 	Texture backgroundTex;
 	if (!backgroundTex.loadFromFile(background)) {
@@ -39,7 +41,7 @@ void firstChoice(float A, float B) {
 	foregroundImage = foregroundTex.copyToImage();
 	Vector2u sz = backgroundImage.getSize();
 
-	//getting the green color by checking the corner and then replacing the green foreground with the background
+	
 
 	Color greenScreen = foregroundImage.getPixel(0, 0);
 
@@ -70,9 +72,9 @@ void firstChoice(float A, float B) {
 	while (true);
 }
 
-void secondChoice(float A, float B) {
+void secondChoice(float A, float B) { // GREY SCALE
 	
-	string background = "images1/backgrounds/winter.png";// tried using the sky png but it caused issues so kept the winter.png
+	string background = "images1/backgrounds/winter.png";
 	string foreground = "images1/characters/LostMan.png";
 	Texture backgroundTex;
 	if (!backgroundTex.loadFromFile(background)) {
@@ -90,7 +92,7 @@ void secondChoice(float A, float B) {
 	foregroundImage = foregroundTex.copyToImage();
 	Vector2u sz = backgroundImage.getSize();
 
-	//getting the green color by checking the corner and then replacing the green foreground with the background
+	
 
 	Color greenScreen = foregroundImage.getPixel(0, 0);
 
@@ -113,11 +115,11 @@ void secondChoice(float A, float B) {
 	window.display();
 	while (true);
 }
-void thirdChoice(float A, float B) {
+void thirdChoice(float A, float B) { //BLUR
 	
 	
 
-	string background = "images1/backgrounds/winter.png";// tried using the sky png but it caused issues so kept the winter.png
+	string background = "images1/backgrounds/winter.png";
 	string foreground = "images1/backgrounds/winter.png";
 	Texture backgroundTex;
 
@@ -138,7 +140,6 @@ void thirdChoice(float A, float B) {
 	Vector2u sz = backgroundImage.getSize();
 
 
-	//getting the green color by checking the corner and then replacing the green foreground with the background
 	for (int y = 0; y <  682 - 1; y++) {
 		for (int x = 0; x < 1024 - 1; x++) {
 			int minX = max(x - 1, 0);
@@ -183,13 +184,13 @@ int main() {
 	printMenu(choice);
 	getChoices(A, B);
 	if (choice == 1) {
-		firstChoice(A, B);
+		firstChoice(A, B); // green screen
 	}
 	if (choice == 2) {
-		secondChoice(A, B);
+		secondChoice(A, B); // grey scale
 	}
 	if (choice == 3) {
-		thirdChoice(A, B);
+		thirdChoice(A, B); // blur
 	}
 	return 0;
 }
