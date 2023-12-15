@@ -7,7 +7,7 @@ using namespace std;
 
 
 void printMenu(int& choice) {
-	cout << "Welcome to my program, please select an operation to perform:" << endl;
+	cout << "Hello! this is my Final Project for CGT 215." << endl;
 	cout << "1. Green Screen image" << endl;
 	cout << "2. Grey Scale image" << endl;
 	cout << "3. Blur image " << endl;
